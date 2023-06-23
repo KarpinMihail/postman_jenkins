@@ -1,0 +1,3667 @@
+{
+	"info": {
+		"_postman_id": "05f415fb-fa75-4772-95ff-79bd91fa0d08",
+		"name": "QA228-auto-Karpin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21412318",
+		"_collection_link": "https://www.postman.com/lunar-meteor-954625/workspace/qa228/collection/21412318-05f415fb-fa75-4772-95ff-79bd91fa0d08?action=share&creator=21412318&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get List(no auth)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List(no auth)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1a-ugpWdOPzt4M+BnYwzBk9ABBdkQU\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "b5radjb04cj7"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "d477a916f788632f490225577b5e55df"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 16:51:17 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686675077.935779,VS0,VE168"
+						},
+						{
+							"key": "Vary",
+							"value": "x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"APP_ID_MISSING\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List(auth)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List(auth)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3081"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c09-IyHXqmGfHKxjXELgipmaVqxDqSM\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "zkt7monq9ns8"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "542e9ccd25badee40fd0ae44618fb74f;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 16:57:30 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686675450.109502,VS0,VE191"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": \"60d0fe4f5311236168a109ca\",\n            \"title\": \"ms\",\n            \"firstName\": \"Sara\",\n            \"lastName\": \"Andersen\",\n            \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cb\",\n            \"title\": \"miss\",\n            \"firstName\": \"Edita\",\n            \"lastName\": \"Vestering\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cc\",\n            \"title\": \"ms\",\n            \"firstName\": \"Adina\",\n            \"lastName\": \"Barbosa\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/28.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cd\",\n            \"title\": \"mr\",\n            \"firstName\": \"Roberto\",\n            \"lastName\": \"Vega\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/25.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109ce\",\n            \"title\": \"mr\",\n            \"firstName\": \"Rudi\",\n            \"lastName\": \"Droste\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/83.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cf\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Carolina\",\n            \"lastName\": \"Lima\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/5.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d0\",\n            \"title\": \"mr\",\n            \"firstName\": \"Emre\",\n            \"lastName\": \"Asikoglu\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/23.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d1\",\n            \"title\": \"mr\",\n            \"firstName\": \"Kent\",\n            \"lastName\": \"Brewer\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/52.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d2\",\n            \"title\": \"mr\",\n            \"firstName\": \"Evan\",\n            \"lastName\": \"Carlson\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/80.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d3\",\n            \"title\": \"mr\",\n            \"firstName\": \"Friedrich-Karl\",\n            \"lastName\": \"Brand\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/7.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d4\",\n            \"title\": \"mr\",\n            \"firstName\": \"Valentin\",\n            \"lastName\": \"Ortega\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/3.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d5\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Sibylle\",\n            \"lastName\": \"Leibold\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d6\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Elisa\",\n            \"lastName\": \"Lorenzo\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d7\",\n            \"title\": \"mr\",\n            \"firstName\": \"Leevi\",\n            \"lastName\": \"Savela\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/67.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d8\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Karoline\",\n            \"lastName\": \"Sviggum\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/61.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d9\",\n            \"title\": \"ms\",\n            \"firstName\": \"Nuria\",\n            \"lastName\": \"Leon\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/93.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109da\",\n            \"title\": \"mr\",\n            \"firstName\": \"Lance\",\n            \"lastName\": \"Foster\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/13.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109db\",\n            \"title\": \"miss\",\n            \"firstName\": \"Naomi\",\n            \"lastName\": \"Rodrigues\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/39.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109dc\",\n            \"title\": \"mr\",\n            \"firstName\": \"Evan\",\n            \"lastName\": \"Roux\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/59.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109dd\",\n            \"title\": \"mr\",\n            \"firstName\": \"Miguel\",\n            \"lastName\": \"Lima\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/31.jpg\"\n        }\n    ],\n    \"total\": 99,\n    \"page\": 0,\n    \"limit\": 20\n}"
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"email\", jsonData.email);",
+							"pm.environment.set(\"userid\", jsonData.id);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "{{$randomFirstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{$randomLastName}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{$randomEmail}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/data/v1/user/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User by id Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\": \"Mihail\",\n\"lastName\": \"Karpin\",\n\"email\": \"biwil2384867@camplvad.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user/create",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c1-Wbv/SCXju8PIDymxSVSzkDhwR8A\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "gnjkbr2i6kv8"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f589bb4c8567498e9046695aef545362;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 17:18:14 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686676694.399302,VS0,VE197"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488a4d6a94d6050e329dcba\",\n    \"firstName\": \"Mihail\",\n    \"lastName\": \"Karpin\",\n    \"email\": \"biwil2384867@camplvad.com\",\n    \"registerDate\": \"2023-06-13T17:18:14.503Z\",\n    \"updatedDate\": \"2023-06-13T17:18:14.503Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User by id (Karpin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User by id Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user/6488a4d6a94d6050e329dcba",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user",
+								"6488a4d6a94d6050e329dcba"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c1-Wbv/SCXju8PIDymxSVSzkDhwR8A\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "qxnzs79glxow"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "42046a543ada705ace92c7785dd6d72c;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 17:44:14 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686678251.907535,VS0,VE3830"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488a4d6a94d6050e329dcba\",\n    \"firstName\": \"Mihail\",\n    \"lastName\": \"Karpin\",\n    \"email\": \"biwil2384867@camplvad.com\",\n    \"registerDate\": \"2023-06-13T17:18:14.503Z\",\n    \"updatedDate\": \"2023-06-13T17:18:14.503Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "{{$randomFirstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{$randomLastName}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User Copy",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\": \"Mihail-2\",\n\"lastName\": \"Karpin-2\",\n\"email\": \"biwil2384867@camplvad.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user/6488a4d6a94d6050e329dcba",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user",
+								"6488a4d6a94d6050e329dcba"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c5-srmEbZUXY2F2TPc/ArdPWGQEaGo\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey99i8qfpi"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "72044483be9f78ce6abd80ab80b81803;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 17:54:11 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686678851.869148,VS0,VE211"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488a4d6a94d6050e329dcba\",\n    \"firstName\": \"Mihail-2\",\n    \"lastName\": \"Karpin-2\",\n    \"email\": \"biwil2384867@camplvad.com\",\n    \"registerDate\": \"2023-06-13T17:18:14.503Z\",\n    \"updatedDate\": \"2023-06-13T17:54:10.961Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User by id after update (Karpin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User by id (Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user/6488a4d6a94d6050e329dcba",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user",
+								"6488a4d6a94d6050e329dcba"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c5-srmEbZUXY2F2TPc/ArdPWGQEaGo\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6eyft8ua6gw"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "11626a25786201d39570207bcfcaea0d;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 17:57:24 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686679045.533619,VS0,VE164"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488a4d6a94d6050e329dcba\",\n    \"firstName\": \"Mihail-2\",\n    \"lastName\": \"Karpin-2\",\n    \"email\": \"biwil2384867@camplvad.com\",\n    \"registerDate\": \"2023-06-13T17:18:14.503Z\",\n    \"updatedDate\": \"2023-06-13T17:54:10.961Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List after update(Karpin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user?page=1&limit=50",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List(auth)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3081"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c09-IyHXqmGfHKxjXELgipmaVqxDqSM\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "zkt7monq9ns8"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "542e9ccd25badee40fd0ae44618fb74f;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 16:57:30 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686675450.109502,VS0,VE191"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": \"60d0fe4f5311236168a109ca\",\n            \"title\": \"ms\",\n            \"firstName\": \"Sara\",\n            \"lastName\": \"Andersen\",\n            \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cb\",\n            \"title\": \"miss\",\n            \"firstName\": \"Edita\",\n            \"lastName\": \"Vestering\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cc\",\n            \"title\": \"ms\",\n            \"firstName\": \"Adina\",\n            \"lastName\": \"Barbosa\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/28.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cd\",\n            \"title\": \"mr\",\n            \"firstName\": \"Roberto\",\n            \"lastName\": \"Vega\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/25.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109ce\",\n            \"title\": \"mr\",\n            \"firstName\": \"Rudi\",\n            \"lastName\": \"Droste\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/83.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109cf\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Carolina\",\n            \"lastName\": \"Lima\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/5.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d0\",\n            \"title\": \"mr\",\n            \"firstName\": \"Emre\",\n            \"lastName\": \"Asikoglu\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/23.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d1\",\n            \"title\": \"mr\",\n            \"firstName\": \"Kent\",\n            \"lastName\": \"Brewer\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/52.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d2\",\n            \"title\": \"mr\",\n            \"firstName\": \"Evan\",\n            \"lastName\": \"Carlson\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/80.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d3\",\n            \"title\": \"mr\",\n            \"firstName\": \"Friedrich-Karl\",\n            \"lastName\": \"Brand\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/7.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d4\",\n            \"title\": \"mr\",\n            \"firstName\": \"Valentin\",\n            \"lastName\": \"Ortega\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/3.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d5\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Sibylle\",\n            \"lastName\": \"Leibold\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d6\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Elisa\",\n            \"lastName\": \"Lorenzo\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/89.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d7\",\n            \"title\": \"mr\",\n            \"firstName\": \"Leevi\",\n            \"lastName\": \"Savela\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/67.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d8\",\n            \"title\": \"mrs\",\n            \"firstName\": \"Karoline\",\n            \"lastName\": \"Sviggum\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/61.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109d9\",\n            \"title\": \"ms\",\n            \"firstName\": \"Nuria\",\n            \"lastName\": \"Leon\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/93.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109da\",\n            \"title\": \"mr\",\n            \"firstName\": \"Lance\",\n            \"lastName\": \"Foster\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/13.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109db\",\n            \"title\": \"miss\",\n            \"firstName\": \"Naomi\",\n            \"lastName\": \"Rodrigues\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/women/39.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109dc\",\n            \"title\": \"mr\",\n            \"firstName\": \"Evan\",\n            \"lastName\": \"Roux\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/59.jpg\"\n        },\n        {\n            \"id\": \"60d0fe4f5311236168a109dd\",\n            \"title\": \"mr\",\n            \"firstName\": \"Miguel\",\n            \"lastName\": \"Lima\",\n            \"picture\": \"https://randomuser.me/api/portraits/med/men/31.jpg\"\n        }\n    ],\n    \"total\": 99,\n    \"page\": 0,\n    \"limit\": 20\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"postid\", jsonData.id);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"text\": \"Привет всем\",\n\"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n\"likes\": \"50\",\n\"tags\": \"QA228\",\n\"owner\": \"{{userid}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/data/v1/post/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"text\": \"Привет всем\",\n\"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n\"likes\": \"50\",\n\"tags\": \"QA228\",\n\"owner\": \"6488a4d6a94d6050e329dcba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/create",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6eywrq967if"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "31acdee180eac57fa3b659e7abe92240;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:14:35 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680075.049126,VS0,VE247"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Post by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/post/{{postid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post",
+						"{{postid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get list after create Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/post",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List by tag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/tag",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"tag"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Comment Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"commentid\", jsonData.id);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"message\": \"Привет мир от группы QA228\",\n\"owner\": \"{{userid}}\",\n\"post\": \"{{postid}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/data/v1/comment/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"comment",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"text\": \"Привет всем\",\n\"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n\"likes\": \"50\",\n\"tags\": \"QA228\",\n\"owner\": \"6488a4d6a94d6050e329dcba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/create",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6eywrq967if"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "31acdee180eac57fa3b659e7abe92240;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:14:35 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680075.049126,VS0,VE247"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List By Post after create comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/post/{{postid}}/comment",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post",
+						"{{postid}}",
+						"comment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List By User after create comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}/comment",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}",
+						"comment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List after create comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(450);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "url",
+						"value": "https://dummyapi.io/data/v1/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/data/v1/comment",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"comment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/comment/{{commentid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"comment",
+						"{{commentid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get List By User after delete comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}/comment",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}",
+						"comment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get comment id after delete comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/comment/{{commentid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"comment",
+						"{{commentid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/post/{{postid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post",
+						"{{postid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Post by id after delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/post/{{postid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"post",
+						"{{postid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get List after update(Karpin) Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/post/6488b20b4586b5b3ad33826a",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"post",
+								"6488b20b4586b5b3ad33826a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-7DTdYvRt1sNvvZZPzzXiXQIUnLI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "e6ey3ztysasj"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f48e5a1e3f25ad9ebec7692c54234b15"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 18:20:15 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230052-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686680416.664715,VS0,VE212"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488b20b4586b5b3ad33826a\",\n    \"image\": \"https://randomuser.me/api/portraits/women/58.jpg\",\n    \"likes\": 50,\n    \"link\": \"\",\n    \"tags\": [\n        \"QA228\"\n    ],\n    \"text\": \"Привет всем\",\n    \"publishDate\": \"2023-06-13T18:14:35.224Z\",\n    \"updatedDate\": \"2023-06-13T18:14:35.224Z\",\n    \"owner\": {\n        \"id\": \"6488a4d6a94d6050e329dcba\",\n        \"firstName\": \"Mihail-2\",\n        \"lastName\": \"Karpin-2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User by id after delete (Karpin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 350ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(350);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "64889c1be1b6608e3e4630d9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "app-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/data/v1/user/{{userid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User by id Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyapi.io/data/v1/user/6488a4d6a94d6050e329dcba",
+							"protocol": "https",
+							"host": [
+								"dummyapi",
+								"io"
+							],
+							"path": [
+								"data",
+								"v1",
+								"user",
+								"6488a4d6a94d6050e329dcba"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c1-Wbv/SCXju8PIDymxSVSzkDhwR8A\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "qxnzs79glxow"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556926"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "42046a543ada705ace92c7785dd6d72c;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "RU"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Jun 2023 17:44:14 GMT"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra-eddf8230048-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1686678251.907535,VS0,VE3830"
+						},
+						{
+							"key": "Vary",
+							"value": "cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6488a4d6a94d6050e329dcba\",\n    \"firstName\": \"Mihail\",\n    \"lastName\": \"Karpin\",\n    \"email\": \"biwil2384867@camplvad.com\",\n    \"registerDate\": \"2023-06-13T17:18:14.503Z\",\n    \"updatedDate\": \"2023-06-13T17:18:14.503Z\"\n}"
+				}
+			]
+		}
+	]
+}
